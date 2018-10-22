@@ -6,7 +6,11 @@
 	<groupId>com.project</groupId>
 	<artifactId>LNU-Project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<modules>
+		<module>Database</module>
+		<module>WEB</module>
+	</modules>
+	<packaging>pom</packaging>
 
 	<name>LNU-Project</name>
 	<description>Demo project for Spring Boot</description>
