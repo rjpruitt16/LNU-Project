@@ -32,5 +32,13 @@ public class DatabaseApplication implements CommandLineRunner {
         training.add(object);
         devService.create(training);
         devService.read(1).forEach(dev -> log.info(dev.toString()));
+        List<Object> newObject = new ArrayList<Object>();
+        newObject.add("Python");
+        newObject.add("Tomorrow");
+        newObject.add("Hussain");
+        newObject.add(30);
+        devService.update(1, newObject);
+        devService.read(1).forEach(dev -> log.info(dev.toString()));
+        log.info("Deletes properly {}", devService.delete(1));
     }
 }

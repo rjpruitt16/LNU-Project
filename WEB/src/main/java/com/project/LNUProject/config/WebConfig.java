@@ -1,4 +1,4 @@
-package com.project.LNUProject.config;
+package com.project.LNUProject;
 
 import com.project.LNUProject.utils.ViewNames;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "com.project.LNUProject.config")
 @Slf4j
 public class WebConfig implements WebMvcConfigurer {
 

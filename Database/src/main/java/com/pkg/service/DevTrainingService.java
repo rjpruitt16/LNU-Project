@@ -3,7 +3,6 @@ package com.pkg.service;
 import com.pkg.tables.DevTraining;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +26,7 @@ public class DevTrainingService implements CRUDService {
     @Override
     public void create(List<Object[]> args) {
         dropTable();
-        
+
         if (!DBExist()) {
             createDB();
         }
@@ -41,14 +40,16 @@ public class DevTrainingService implements CRUDService {
         return template.query("select * from " + TABLE_NAME + " where id = ?",
                 new Object[] {id},
                 (rs, rowNum) -> new DevTraining(rs.getString("course"),
-                        rs.getString("startDate"), rs.getString("instructer"),
+                        rs.getString("startDate"), rs.getString("instructor"),
                         rs.getInt("capacity"), rs.getLong("id")));
     }
 
     @Override
     public boolean update(int id, List<Object> args) {
-        return template.update("DELETE from " + TABLE_NAME + " where id = ?",
-                               args) > 0;
+        args.add(id);
+        args.forEach(arg -> log.info("arg: {}", arg));
+        return template.update("UPDATE " + TABLE_NAME + " SET course = ?, startDate = ?, " +
+                "instructor = ?, capacity = ? WHERE id = ?", args) > 0;
     }
 
     @Override
@@ -60,7 +61,7 @@ public class DevTrainingService implements CRUDService {
         try {
             template.execute("select 1 from " + TABLE_NAME);
         }
-        catch ( Exception x) {
+        catch (Exception x) {
             return false;
         }
         return true;
