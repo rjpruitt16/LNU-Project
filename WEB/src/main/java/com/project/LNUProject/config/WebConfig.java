@@ -1,4 +1,4 @@
-package com.project.LNUProject;
+package com.project.LNUProject.config;
 
 import com.project.LNUProject.utils.ViewNames;
 import lombok.extern.slf4j.Slf4j;

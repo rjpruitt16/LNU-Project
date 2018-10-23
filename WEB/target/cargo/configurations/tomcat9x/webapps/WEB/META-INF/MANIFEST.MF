@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven 3.3.9
+Built-By: rahmijamalpruitt
+Build-Jdk: 10.0.2
+Implementation-Title: WEB
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.project
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/LNU-Project/WEB
+Main-Class: org.springframework.boot.loader.WarLauncher
+Start-Class: com.project.LNUProject.WebAppInitializer
+Spring-Boot-Version: 2.0.6.RELEASE
+Spring-Boot-Classes: WEB-INF/classes/
+Spring-Boot-Lib: WEB-INF/lib/
+
